@@ -1,0 +1,346 @@
+{
+  "guilds": [
+    {
+      "id": "flavor",
+      "name": "Flavor Guild",
+      "icon": "🌿",
+      "tagline": "Master the language of taste",
+      "description": "The Flavor Guild trains cooks to understand ingredient synergy, taste balance, and sensory harmony. Members learn to build dishes where every element amplifies the whole.",
+      "philosophy": "Flavor is not accident — it is architecture. Every great dish is a conversation between ingredients.",
+      "color": "#2D5A27",
+      "ranks": [
+        { "level": 1, "title": "Taste Apprentice", "xp_required": 0 },
+        { "level": 2, "title": "Palate Student", "xp_required": 200 },
+        { "level": 3, "title": "Flavor Journeyman", "xp_required": 600 },
+        { "level": 4, "title": "Harmony Keeper", "xp_required": 1400 },
+        { "level": 5, "title": "Flavor Sage", "xp_required": 3000 }
+      ],
+      "lessons": [
+        "The Five Tastes: Salt, Sweet, Sour, Bitter, Umami",
+        "Acid Balance and Brightness",
+        "Fat as a Flavor Carrier",
+        "Heat and Capsaicin Dynamics",
+        "Aromatic Layering",
+        "Texture as a Flavor Element",
+        "Seasonal Ingredient Flavor Peaks",
+        "Building a Flavor Profile from Scratch"
+      ],
+      "signature_techniques": [
+        "Progressive salting",
+        "Acid-fat balancing",
+        "Aromatic building",
+        "Contrasting texture pairing"
+      ],
+      "seasonal_quests": [
+        { "season": "spring", "quest": "Build three dishes using only spring aromatics — ramps, asparagus, peas, and fresh herbs." },
+        { "season": "summer", "quest": "Create a dish where acid is the hero: citrus, vinegar, and fermented elements." },
+        { "season": "fall", "quest": "Master the umami layer: mushrooms, aged cheese, cured meats, and miso." },
+        { "season": "winter", "quest": "Warm spice workshop: build a savory and a sweet dish using cinnamon, clove, star anise, and cardamom." }
+      ]
+    },
+    {
+      "id": "sauce",
+      "name": "Sauce Guild",
+      "icon": "🥣",
+      "tagline": "Where sauces become the soul of the dish",
+      "description": "The Sauce Guild masters the classical French mother sauces, their derivatives, and modern interpretations. From beurre blanc to mole, members learn that a great sauce transforms everything.",
+      "philosophy": "A sauce is not a condiment. It is the bridge between the cook and the diner.",
+      "color": "#7A3B0E",
+      "ranks": [
+        { "level": 1, "title": "Sauce Novice", "xp_required": 0 },
+        { "level": 2, "title": "Roux Student", "xp_required": 200 },
+        { "level": 3, "title": "Emulsion Keeper", "xp_required": 600 },
+        { "level": 4, "title": "Mother Sauce Master", "xp_required": 1400 },
+        { "level": 5, "title": "Grand Saucier", "xp_required": 3000 }
+      ],
+      "lessons": [
+        "The Five Mother Sauces: Béchamel, Velouté, Espagnole, Hollandaise, Tomato",
+        "Building a Fond and Deglazing",
+        "Emulsification: Stable and Broken",
+        "Reduction Technique and Nappe",
+        "Pan Sauce Fundamentals",
+        "Modern Sauces: Foams, Oils, and Vinaigrettes",
+        "Global Sauces: Mole, Chermoula, Romesco, Chimichurri",
+        "Sauce Rescue and Troubleshooting"
+      ],
+      "signature_techniques": [
+        "Roux construction",
+        "Butter mounting (monter au beurre)",
+        "Reduction to nappe",
+        "Emulsion stabilization"
+      ],
+      "seasonal_quests": [
+        { "season": "spring", "quest": "Build a hollandaise and two derivatives: béarnaise and paloise." },
+        { "season": "summer", "quest": "Create three cold sauces from scratch: aioli, salsa verde, and a fruit coulis." },
+        { "season": "fall", "quest": "Master the espagnole: build a full demi-glace from bones." },
+        { "season": "winter", "quest": "Cream sauce exploration: béchamel family with three classical derivatives." }
+      ]
+    },
+    {
+      "id": "fire",
+      "name": "Fire Guild",
+      "icon": "🔥",
+      "tagline": "Command heat, command the kitchen",
+      "description": "The Fire Guild trains cooks in every form of applied heat — the Maillard reaction, smoke, braising, roasting, and live-fire cooking. Heat is the cook's primary tool.",
+      "philosophy": "Fire is not your enemy. It is your medium. Master heat and you master cooking.",
+      "color": "#8B1A1A",
+      "ranks": [
+        { "level": 1, "title": "Flame Tender", "xp_required": 0 },
+        { "level": 2, "title": "Sear Student", "xp_required": 200 },
+        { "level": 3, "title": "Char Keeper", "xp_required": 600 },
+        { "level": 4, "title": "Smoke Artisan", "xp_required": 1400 },
+        { "level": 5, "title": "Pyro Chef", "xp_required": 3000 }
+      ],
+      "lessons": [
+        "The Maillard Reaction: Science of Browning",
+        "Pan Searing: Temperature, Protein, and Timing",
+        "Roasting: Dry Heat and Convection",
+        "Braising and Slow Cooking",
+        "Grilling: Direct vs Indirect Heat",
+        "Smoking: Wood Selection and Temperature Control",
+        "Deep Frying: Oil Temperature and Crust Development",
+        "Sous Vide and Precision Temperature Cooking"
+      ],
+      "signature_techniques": [
+        "The proper sear: dry protein, screaming-hot pan, no moving",
+        "Two-zone grilling",
+        "Reverse sear method",
+        "Low-and-slow smoke management"
+      ],
+      "seasonal_quests": [
+        { "season": "spring", "quest": "Grill three proteins perfectly using two-zone method: chicken, fish, and vegetable." },
+        { "season": "summer", "quest": "Live-fire week: build a full meal over open flame or charcoal only." },
+        { "season": "fall", "quest": "Braise mastery: short rib, lamb shank, and chicken thigh, three different liquid bases." },
+        { "season": "winter", "quest": "Low-and-slow smoke: brisket or pork shoulder over 8+ hours." }
+      ]
+    },
+    {
+      "id": "spice",
+      "name": "Spice Guild",
+      "icon": "🌶️",
+      "tagline": "Origin, aroma, and the alchemy of seasoning",
+      "description": "The Spice Guild is a deep study of spice origins, aromatic chemistry, blend construction, and regional spice traditions. Members learn to season with intention and cultural awareness.",
+      "philosophy": "Every spice carries a story. When you use it, you carry that story into your dish.",
+      "color": "#C9A227",
+      "ranks": [
+        { "level": 1, "title": "Spice Seeker", "xp_required": 0 },
+        { "level": 2, "title": "Blend Apprentice", "xp_required": 200 },
+        { "level": 3, "title": "Aroma Keeper", "xp_required": 600 },
+        { "level": 4, "title": "Spice Architect", "xp_required": 1400 },
+        { "level": 5, "title": "Grand Spice Master", "xp_required": 3000 }
+      ],
+      "lessons": [
+        "Spice Origins and Trade History",
+        "Toasting and Blooming Techniques",
+        "Whole vs Ground: When to Use Each",
+        "Building a Spice Blend from Scratch",
+        "The Four Spice Families: Warm, Pungent, Herbaceous, Citrus",
+        "Regional Blend Profiles: Garam Masala, Ras el Hanout, Za'atar, Berbere",
+        "Salt as a Spice Carrier",
+        "Balancing Heat, Warmth, and Aroma"
+      ],
+      "signature_techniques": [
+        "Dry toasting in cast iron",
+        "Blooming in fat",
+        "Grinding fresh in mortar",
+        "Building a layered spice base"
+      ],
+      "seasonal_quests": [
+        { "season": "spring", "quest": "Create three herbaceous blends using spring-fresh herbs and light spices." },
+        { "season": "summer", "quest": "Build a regional rub: North African, Jamaican jerk, or Indian tikka masala blend." },
+        { "season": "fall", "quest": "Warm spice deep dive: cinnamon, allspice, clove, nutmeg in savory applications." },
+        { "season": "winter", "quest": "Spice extraction: make three infused oils, tinctures, or aromatic sugars." }
+      ]
+    },
+    {
+      "id": "heritage",
+      "name": "Heritage Guild",
+      "icon": "🌍",
+      "tagline": "Cook with roots, cook with respect",
+      "description": "The Heritage Guild is the cultural heart of The Culinary Guild. Members explore Cajun, Creole, Gullah Geechee, Native American, and global food traditions with historical depth and culinary respect.",
+      "philosophy": "Tradition is not a limitation. It is a living archive of human ingenuity and survival.",
+      "color": "#4A2C2A",
+      "ranks": [
+        { "level": 1, "title": "Cultural Learner", "xp_required": 0 },
+        { "level": 2, "title": "Tradition Student", "xp_required": 200 },
+        { "level": 3, "title": "Heritage Cook", "xp_required": 600 },
+        { "level": 4, "title": "Cultural Keeper", "xp_required": 1400 },
+        { "level": 5, "title": "Heritage Master", "xp_required": 3000 }
+      ],
+      "lessons": [
+        "Cajun Cuisine: Bayou to Table",
+        "Creole Cooking: The Melting Pot of New Orleans",
+        "Gullah Geechee: Lowcountry Food Traditions",
+        "Native American Foodways: Three Sisters and Beyond",
+        "West African Culinary Roots",
+        "The African Diaspora in American Cooking",
+        "Mediterranean Food Philosophy",
+        "Southeast Asian Flavor Systems"
+      ],
+      "signature_techniques": [
+        "The Cajun trinity (onion, celery, bell pepper)",
+        "Gullah rice cooking methods",
+        "Native pit roasting",
+        "West African groundnut stew construction"
+      ],
+      "seasonal_quests": [
+        { "season": "spring", "quest": "Cook a full Gullah Geechee spring table: red rice, oysters, and spring greens." },
+        { "season": "summer", "quest": "West African summer feast: jollof rice, suya, and a cold hibiscus drink." },
+        { "season": "fall", "quest": "Native American harvest: Three Sisters stew, fry bread, and roasted game." },
+        { "season": "winter", "quest": "New Orleans winter soul: gumbo, red beans and rice, and beignets." }
+      ]
+    },
+    {
+      "id": "bake",
+      "name": "Bake Guild",
+      "icon": "🍰",
+      "tagline": "Precision is the ingredient you cannot taste",
+      "description": "The Bake Guild teaches precision baking, pastry fundamentals, and the science of rise, crumb, and crust. From sourdough to celebration cakes, baking is chemistry with a delicious result.",
+      "philosophy": "Baking rewards patience and precision. Measure twice, taste once.",
+      "color": "#8B6914",
+      "ranks": [
+        { "level": 1, "title": "Dough Novice", "xp_required": 0 },
+        { "level": 2, "title": "Crumb Student", "xp_required": 200 },
+        { "level": 3, "title": "Leavening Keeper", "xp_required": 600 },
+        { "level": 4, "title": "Pastry Artisan", "xp_required": 1400 },
+        { "level": 5, "title": "Grand Pâtissier", "xp_required": 3000 }
+      ],
+      "lessons": [
+        "The Science of Gluten Development",
+        "Leavening: Yeast, Baking Soda, and Baking Powder",
+        "Mixing Methods: Creaming, Reverse Creaming, All-in-One",
+        "Cake Structure and Crumb Science",
+        "Pastry Doughs: Pâte Brisée, Sucrée, and Feuilletée",
+        "Bread Fundamentals: Hydration, Fermentation, and Shaping",
+        "Chocolate Tempering and Ganache",
+        "Scaling Recipes: The Rose Factor Method"
+      ],
+      "signature_techniques": [
+        "Reverse creaming method",
+        "Lamination for croissants",
+        "Scoring bread for oven spring",
+        "Swiss meringue buttercream"
+      ],
+      "seasonal_quests": [
+        { "season": "spring", "quest": "Spring pastry collection: lemon tart, strawberry chiffon cake, and a seasonal galette." },
+        { "season": "summer", "quest": "Cold baking challenge: ice cream cake, semifreddo, and no-bake cheesecake." },
+        { "season": "fall", "quest": "Spiced bake week: apple tarte tatin, pumpkin bread, and a chai pound cake." },
+        { "season": "winter", "quest": "Celebration baking: build a layered layer cake with buttercream and a yule log." }
+      ]
+    },
+    {
+      "id": "broth",
+      "name": "Broth Hall",
+      "icon": "🍲",
+      "tagline": "Everything begins with a great stock",
+      "description": "The Broth Hall is dedicated to stocks, broths, soups, and stews — the foundation of classical cooking. Members learn that depth, body, and flavor all start in the pot.",
+      "philosophy": "A cook who understands stock understands cooking.",
+      "color": "#2E4A3E",
+      "ranks": [
+        { "level": 1, "title": "Stock Tender", "xp_required": 0 },
+        { "level": 2, "title": "Broth Builder", "xp_required": 200 },
+        { "level": 3, "title": "Consommé Student", "xp_required": 600 },
+        { "level": 4, "title": "Soup Artisan", "xp_required": 1400 },
+        { "level": 5, "title": "Grand Bouillon Master", "xp_required": 3000 }
+      ],
+      "lessons": [
+        "Stock Fundamentals: Bones, Water, Aromatics, Time",
+        "White Stock vs Brown Stock",
+        "Consommé: The Art of Clarification",
+        "Cream Soups: Bisques and Velouté-Based Soups",
+        "Chowders: Dairy, Tomato, and Clear Styles",
+        "Ramen Broth Deep Dive: Tonkotsu, Shio, Shoyu, Miso",
+        "Global Soup Traditions: Pho, Caldo, Borscht, Harira",
+        "Texture and Garnish: Finishing the Bowl"
+      ],
+      "signature_techniques": [
+        "Cold water start for clear stock",
+        "Raft method for consommé clarification",
+        "Finishing with fresh herbs and acid",
+        "Ramen tare construction"
+      ],
+      "seasonal_quests": [
+        { "season": "spring", "quest": "Light spring broth: asparagus velouté and a clear spring vegetable consommé." },
+        { "season": "summer", "quest": "Cold soup collection: gazpacho, vichyssoise, and a chilled fruit soup." },
+        { "season": "fall", "quest": "Roasted bone broth: make a 12-hour beef bone broth and a French onion soup." },
+        { "season": "winter", "quest": "Ramen deep dive: build a tonkotsu or miso ramen from scratch including tare." }
+      ]
+    },
+    {
+      "id": "mixology",
+      "name": "Mixology Chamber",
+      "icon": "🍸",
+      "tagline": "Balance, build, and shake with purpose",
+      "description": "The Mixology Chamber covers cocktail theory, spirit profiles, technique, and food pairing. Members learn that great drinks follow the same principles as great food — balance, acid, sugar, and dilution.",
+      "philosophy": "A cocktail is a meal in a glass. Treat it with the same care.",
+      "color": "#1A2A4A",
+      "ranks": [
+        { "level": 1, "title": "Bar Apprentice", "xp_required": 0 },
+        { "level": 2, "title": "Spirit Student", "xp_required": 200 },
+        { "level": 3, "title": "Shaker Keeper", "xp_required": 600 },
+        { "level": 4, "title": "Cocktail Artisan", "xp_required": 1400 },
+        { "level": 5, "title": "Grand Mixologist", "xp_required": 3000 }
+      ],
+      "lessons": [
+        "The Six Classic Cocktail Families: Sour, Old Fashioned, Highball, Flip, Fizz, Punch",
+        "Spirit Profiles: Whiskey, Rum, Gin, Tequila, Vodka, Brandy",
+        "The Golden Ratio: Spirit, Sweet, Sour",
+        "Bitters: Function and Application",
+        "Ice Theory: Dilution, Temperature, and Texture",
+        "Infusions and Fat-Washing",
+        "Food and Drink Pairing Principles",
+        "Classic Cocktail History from Jerry Thomas to Today"
+      ],
+      "signature_techniques": [
+        "Shaking vs stirring (and why it matters)",
+        "Fat-washing spirits",
+        "Clarification with milk",
+        "Layering for density"
+      ],
+      "seasonal_quests": [
+        { "season": "spring", "quest": "Spring floral cocktails: elderflower, lavender, and fresh herb syrups." },
+        { "season": "summer", "quest": "Frozen and sparkling: build three fizzes and a frozen daiquiri variation." },
+        { "season": "fall", "quest": "Warm and stirred: build an old fashioned family — classic, mezcal, and rum." },
+        { "season": "winter", "quest": "Holiday punch bowl: build a batched punch for 8 using spirit, citrus, and spice." }
+      ]
+    },
+    {
+      "id": "otaku",
+      "name": "Otaku Culinary Guild",
+      "icon": "🍱",
+      "tagline": "Cook the meals that made you want to live inside the story",
+      "description": "The Otaku Culinary Guild is where anime-inspired cooking meets serious culinary craft. Members recreate iconic anime-inspired dishes, explore fantasy tavern menus, and compete in fandom-themed kitchen trials.",
+      "philosophy": "Food in anime is not decoration — it is emotion. When you recreate it, you carry that feeling into the real world.",
+      "color": "#3D1A6E",
+      "ranks": [
+        { "level": 1, "title": "Bento Novice", "xp_required": 0 },
+        { "level": 2, "title": "Ramen Apprentice", "xp_required": 200 },
+        { "level": 3, "title": "Tavern Cook", "xp_required": 600 },
+        { "level": 4, "title": "Festival Vendor", "xp_required": 1400 },
+        { "level": 5, "title": "Master Provisioner", "xp_required": 3000 }
+      ],
+      "lessons": [
+        "Japanese Comfort Food: Rice, Miso, and Umami",
+        "Ramen from Scratch: Broth, Tare, Noodles, and Toppings",
+        "Bento Box Design: Balance, Color, and Nutrition",
+        "Anime Tavern Foods: Stews, Roasts, and Bread",
+        "Festival Street Foods: Takoyaki, Taiyaki, Yakitori",
+        "Yoshoku: Western-Japanese Fusion Cooking",
+        "Fantasy Cuisine: Mapping Fictional Dishes to Real Recipes",
+        "Omurice and Katsu Curry: Crowd Favorites Done Right"
+      ],
+      "signature_techniques": [
+        "Tamagoyaki roll",
+        "Ramen broth layering",
+        "Rice ball shaping",
+        "Katsu breading and frying"
+      ],
+      "seasonal_quests": [
+        { "season": "spring", "quest": "Spring bento challenge: create a full bento with spring colors, cherry blossom themes, and balanced nutrition." },
+        { "season": "summer", "quest": "Anime summer festival: recreate three classic summer matsuri foods." },
+        { "season": "fall", "quest": "Isekai tavern week: build a fantasy tavern menu with stew, roast, and hearty bread." },
+        { "season": "winter", "quest": "Winter arc comfort: create a warming anime-inspired ramen bowl and a sweet companion dessert." }
+      ]
+    }
+  ]
+}
