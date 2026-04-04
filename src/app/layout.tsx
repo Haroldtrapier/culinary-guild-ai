@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Culinary Guild AI - Your Intelligent Kitchen Companion",
+  title: "The Culinary Guild — Agentic Culinary Ecosystem",
   description:
-    "Discover recipes, get cooking tips, and elevate your culinary skills with AI-powered assistance from the Culinary Guild.",
-  keywords: ["cooking", "recipes", "AI", "culinary", "food", "kitchen"],
+    "Build a culinary world: Kitchen Trials, anime-inspired dish recreation, cultural cuisine intelligence, and chef-level editorial storytelling — all in one agentic system.",
+  keywords: [
+    "culinary guild",
+    "kitchen trials",
+    "anime cooking",
+    "otaku culinary guild",
+    "recipes",
+    "AI culinary",
+    "food",
+  ],
 };
 
 export default function RootLayout({
@@ -20,11 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
-      </body>
+      <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
 }

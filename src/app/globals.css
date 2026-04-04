@@ -3,56 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --color-bg: #fdfaf5;
-    --color-surface: #ffffff;
-    --color-text: #1a1a1a;
-    --color-text-muted: #6b7280;
-  }
-
   html {
     scroll-behavior: smooth;
-  }
-
-  body {
-    background-color: var(--color-bg);
-    color: var(--color-text);
-  }
-}
-
-@layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-500 via-brand-600 to-forest-600;
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
-    opacity: 0;
-  }
-
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
-
-  .animate-slide-up {
-    animation: slideUp 0.6s ease-out forwards;
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  @keyframes slideUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 }

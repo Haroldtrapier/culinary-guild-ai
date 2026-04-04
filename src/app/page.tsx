@@ -1,310 +1,759 @@
-import Link from "next/link";
-import {
-  ChefHat,
-  Sparkles,
-  BookOpen,
-  Clock,
-  Utensils,
-  Heart,
-  Leaf,
-  ArrowRight,
-  MessageSquare,
-  Lightbulb,
-  Globe,
-} from "lucide-react";
+export default function CulinaryGuildSiteMVP() {
+  const nav = [
+    "Home",
+    "Guild Path",
+    "Kitchen Trials",
+    "Otaku Culinary Guild",
+    "Guilds",
+    "Schema",
+    "Prompts",
+    "Wireframes",
+    "Repo",
+  ];
 
-const features = [
-  {
-    icon: Sparkles,
-    title: "AI-Powered Recipes",
-    description:
-      "Get personalized recipe suggestions based on your ingredients, dietary preferences, and skill level.",
-  },
-  {
-    icon: MessageSquare,
-    title: "Cooking Assistant",
-    description:
-      "Ask questions about techniques, substitutions, and timing. Your personal chef mentor is always available.",
-  },
-  {
-    icon: BookOpen,
-    title: "Recipe Library",
-    description:
-      "Browse our curated collection of recipes from cuisines around the world, from quick meals to gourmet dishes.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Smart Suggestions",
-    description:
-      "Reduce food waste with intelligent ingredient-based recipe matching and creative meal ideas.",
-  },
-  {
-    icon: Globe,
-    title: "World Cuisines",
-    description:
-      "Explore authentic dishes from Italian, Japanese, Mexican, Indian, and many more culinary traditions.",
-  },
-  {
-    icon: Heart,
-    title: "Dietary Friendly",
-    description:
-      "Filter for vegetarian, vegan, gluten-free, keto, and other dietary needs with ease.",
-  },
-];
+  const guilds = [
+    {
+      name: "Flavor Guild",
+      desc: "Pairing logic, taste balance, ingredient synergy, and dish cohesion.",
+      icon: "🌿",
+    },
+    {
+      name: "Sauce Guild",
+      desc: "Mother sauces, derivatives, emulsions, reductions, and finishing logic.",
+      icon: "🥣",
+    },
+    {
+      name: "Fire Guild",
+      desc: "Searing, roasting, grilling, smoking, braising, and live-heat execution.",
+      icon: "🔥",
+    },
+    {
+      name: "Spice Guild",
+      desc: "Global spice origins, blends, authenticity, and flavor architecture.",
+      icon: "🌶️",
+    },
+    {
+      name: "Heritage Guild",
+      desc: "Cajun, Creole, Gullah Geechee, Indigenous, and regional culinary intelligence.",
+      icon: "🗺️",
+    },
+    {
+      name: "Otaku Culinary Guild",
+      desc: "Anime-inspired dish recreation, fandom immersion, and style-aware culinary inference.",
+      icon: "🍱",
+    },
+  ];
 
-const stats = [
-  { value: "1000+", label: "Recipes" },
-  { value: "50+", label: "Cuisines" },
-  { value: "24/7", label: "AI Help" },
-  { value: "Free", label: "To Use" },
-];
+  const schema = [
+    {
+      table: "users",
+      fields: ["id", "email", "display_name", "created_at"],
+    },
+    {
+      table: "user_profiles",
+      fields: [
+        "user_id",
+        "rank_id",
+        "xp",
+        "streak_days",
+        "favorite_cuisines",
+        "dietary_preferences",
+      ],
+    },
+    {
+      table: "ingredients",
+      fields: [
+        "id",
+        "name",
+        "category",
+        "aliases",
+        "seasonality",
+        "is_anime_friendly",
+      ],
+    },
+    {
+      table: "ingredient_scans",
+      fields: [
+        "id",
+        "user_id",
+        "image_url",
+        "top_match",
+        "confidence_score",
+        "detected_at",
+        "saved_to_pantry",
+      ],
+    },
+    {
+      table: "safety_flags",
+      fields: [
+        "id",
+        "scan_id",
+        "risk_level",
+        "warning_type",
+        "recommended_action",
+        "notes",
+      ],
+    },
+    {
+      table: "spices",
+      fields: ["id", "name", "origin_region", "heat_level", "pairings", "notes"],
+    },
+    {
+      table: "recipes",
+      fields: [
+        "id",
+        "title",
+        "slug",
+        "difficulty",
+        "guild",
+        "story_note",
+        "plating_note",
+      ],
+    },
+    {
+      table: "recipe_steps",
+      fields: [
+        "id",
+        "recipe_id",
+        "step_order",
+        "instruction",
+        "technique_tag",
+        "time_minutes",
+      ],
+    },
+    {
+      table: "anime_series",
+      fields: [
+        "id",
+        "title",
+        "dominant_food_style",
+        "setting_type",
+        "food_presence_score",
+        "notes",
+      ],
+    },
+    {
+      table: "anime_food_profiles",
+      fields: [
+        "id",
+        "anime_series_id",
+        "cuisine_family",
+        "recurring_food_themes",
+        "real_world_analogs",
+        "comfort_food_score",
+      ],
+    },
+    {
+      table: "anime_dish_inferences",
+      fields: [
+        "id",
+        "anime_series_id",
+        "dish_name",
+        "confidence_score",
+        "real_world_mapping",
+        "style_notes",
+      ],
+    },
+    {
+      table: "challenges",
+      fields: [
+        "id",
+        "title",
+        "mode",
+        "difficulty",
+        "time_limit",
+        "theme",
+        "guild_id",
+      ],
+    },
+    {
+      table: "challenge_baskets",
+      fields: [
+        "id",
+        "challenge_id",
+        "anchor_ingredient",
+        "tension_ingredient",
+        "support_ingredient",
+        "wildcard_ingredient",
+      ],
+    },
+    {
+      table: "challenge_scores",
+      fields: [
+        "id",
+        "submission_id",
+        "flavor_balance",
+        "technique",
+        "creativity",
+        "cohesion",
+        "presentation",
+        "authenticity",
+        "total_score",
+      ],
+    },
+  ];
 
-const sampleRecipes = [
-  {
-    title: "Truffle Mushroom Risotto",
-    time: "45 min",
-    difficulty: "Intermediate",
-    category: "Italian",
-    image: "🍄",
-  },
-  {
-    title: "Miso Glazed Salmon",
-    time: "30 min",
-    difficulty: "Easy",
-    category: "Japanese",
-    image: "🐟",
-  },
-  {
-    title: "Thai Green Curry",
-    time: "35 min",
-    difficulty: "Easy",
-    category: "Thai",
-    image: "🍛",
-  },
-];
+  const prompts = [
+    {
+      title: "Anime Culinary Inference Agent",
+      goal: "Infer the dominant cooking style, likely dish families, and real-world culinary analogs from a named anime.",
+      snippet:
+        "Given an anime title, identify whether the food style is rooted in school lunches, ramen culture, tavern cooking, festival street food, survival cuisine, desserts, bento culture, or fantasy analogs. Return likely dishes, real-world mappings, flavor notes, and an IP-safe inspired recreation path.",
+    },
+    {
+      title: "Kitchen Trials Judge Agent",
+      goal: "Score a user submission like a demanding but constructive chef.",
+      snippet:
+        "Evaluate against challenge rules. Score flavor balance, technique, creativity, cohesion, presentation, authenticity, and constraint completion. Give precise improvement notes, not generic praise.",
+    },
+    {
+      title: "Recipe Composer Agent",
+      goal: "Generate recipe outputs with technique, story, and adaptation paths.",
+      snippet:
+        "Compose a recipe with ingredients, method, chef notes, substitutions, plating guidance, and cultural context. Offer weeknight, elevated, and challenge-mode variants when relevant.",
+    },
+    {
+      title: "James Beard Editorial Agent",
+      goal: "Write with culinary depth, elegance, and editorial quality.",
+      snippet:
+        "Explain season, ingredient choice, technique, and story with authority. Avoid generic AI tone. Prioritize clarity, culinary rigor, and memorable food writing.",
+    },
+  ];
 
-export default function Home() {
+  const wireframes = [
+    {
+      name: "Home / Guild Hall",
+      blocks: [
+        "Hero: search + featured guilds",
+        "Guild Path callout",
+        "Kitchen Trials callout",
+        "Otaku Culinary Guild carousel",
+        "Daily Trial",
+        "Progress + ranks",
+        "Editorial collection spotlight",
+      ],
+    },
+    {
+      name: "Guild Path Scan",
+      blocks: [
+        "Camera / upload",
+        "Detected item card",
+        "Confidence score",
+        "Toxicity / safety banner",
+        "Pairings",
+        "Recipe options",
+        "Save to Pantry / Start Trial",
+      ],
+    },
+    {
+      name: "Kitchen Trials",
+      blocks: [
+        "Difficulty selector",
+        "Basket reveal",
+        "Timer",
+        "Plan / Hint / Guided mode",
+        "Submit dish",
+        "Judge results panel",
+      ],
+    },
+    {
+      name: "Anime Series Style Page",
+      blocks: [
+        "Anime title + style summary",
+        "Likely food categories",
+        "Dish recreation cards",
+        "Immersion mode",
+        "Series-inspired trial button",
+      ],
+    },
+    {
+      name: "Schema + Build Docs",
+      blocks: [
+        "Database cards",
+        "Agent prompt library",
+        "Repo tree",
+        "API endpoint list",
+      ],
+    },
+  ];
+
+  const repo = [
+    "apps/web                # Next.js frontend",
+    "apps/api                # FastAPI backend",
+    "packages/ui             # shared components",
+    "packages/prompts        # agent prompts and templates",
+    "packages/schema         # DB models and migrations",
+    "packages/content        # editorial collections, trials, anime guides",
+    "packages/agents         # orchestrator + specialist agents",
+    "supabase/               # policies, SQL, seeds",
+    "docs/                   # product, wireframes, editorial standards",
+  ];
+
+  const endpoints = [
+    "POST /api/vision/identify",
+    "POST /api/vision/safety-check",
+    "POST /api/ingredient/profile",
+    "POST /api/recipes/from-ingredient",
+    "POST /api/recipes/generate",
+    "POST /api/anime/infer-style",
+    "POST /api/anime/recreate-dish",
+    "POST /api/trials/generate",
+    "POST /api/trials/judge",
+    "GET /api/guilds",
+    "GET /api/collections/featured",
+    "POST /api/editorial/compose",
+  ];
+
+  const features = [
+    "Style-aware anime dish recreation",
+    "Mystery-basket challenge engine",
+    "Guild progression and ranks",
+    "Prestige editorial layer",
+    "Cultural cuisine intelligence",
+    "Recipe + plating + pairing guidance",
+    "Guild Path image-to-ingredient discovery",
+    "Poisonous plant and mushroom safety alerts",
+  ];
+
   return (
-    <div className="relative">
-      {/* Hero */}
-      <section className="relative overflow-hidden pt-20 pb-32 sm:pt-32 sm:pb-40">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-forest-50/30" />
-        <div className="absolute top-20 right-10 w-72 h-72 bg-brand-200/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-forest-200/20 rounded-full blur-3xl" />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100/60 text-brand-700 text-sm font-medium mb-8">
-              <Sparkles className="h-4 w-4" />
-              Powered by Artificial Intelligence
+    <div className="min-h-screen bg-zinc-950 text-zinc-100">
+      <header className="sticky top-0 z-20 border-b border-zinc-800/80 bg-zinc-950/90 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <div>
+            <div className="text-xs uppercase tracking-[0.35em] text-zinc-400">
+              The Culinary Guild
             </div>
-
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
-              Your Intelligent{" "}
-              <span className="text-gradient">Kitchen Companion</span>
-            </h1>
-
-            <p className="mt-8 text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              Discover recipes, master techniques, and transform your cooking
-              with AI-powered guidance from the Culinary Guild.
-            </p>
-
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/assistant"
-                className="group flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 text-white font-semibold text-lg hover:from-brand-600 hover:to-brand-700 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02]"
-              >
-                <ChefHat className="h-5 w-5" />
-                Ask the AI Chef
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/recipes"
-                className="flex items-center gap-2 px-8 py-4 rounded-full border-2 border-brand-200 text-brand-700 font-semibold text-lg hover:bg-brand-50 hover:border-brand-300 transition-all"
-              >
-                <BookOpen className="h-5 w-5" />
-                Browse Recipes
-              </Link>
+            <div className="text-xl font-semibold">
+              Agentic Culinary Ecosystem
             </div>
           </div>
-
-          {/* Stats */}
-          <div className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-3xl font-bold text-gradient">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-gray-500 mt-1">{stat.label}</div>
-              </div>
+          <nav className="hidden gap-5 text-sm text-zinc-300 md:flex">
+            {nav.map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                className="transition hover:text-white"
+              >
+                {item}
+              </a>
             ))}
-          </div>
+          </nav>
         </div>
-      </section>
+      </header>
 
-      {/* Features */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold">
-              Everything You Need in the{" "}
-              <span className="text-gradient">Kitchen</span>
-            </h2>
-            <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-              From recipe discovery to cooking guidance, the Culinary Guild AI
-              has you covered at every step.
+      <main className="mx-auto max-w-7xl px-6 py-10">
+        <section id="home" className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="rounded-3xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950 p-8 shadow-2xl">
+            <div className="mb-4 inline-flex rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-300">
+              Full build package + site MVP
+            </div>
+            <h1 className="max-w-3xl text-4xl font-semibold leading-tight md:text-6xl">
+              Build a culinary world: part school, part challenge arena, part
+              fandom kitchen, part prestige food platform.
+            </h1>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-zinc-300 md:text-lg">
+              The Culinary Guild combines Kitchen Trials, anime-inspired dish
+              recreation, cultural cuisine intelligence, and chef-level editorial
+              storytelling into one agentic system.
             </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="#kitchen-trials"
+                className="rounded-2xl bg-white px-5 py-3 font-medium text-zinc-950 transition hover:opacity-90"
+              >
+                Explore Kitchen Trials
+              </a>
+              <a
+                href="#otaku-culinary-guild"
+                className="rounded-2xl border border-zinc-700 px-5 py-3 font-medium text-white transition hover:border-zinc-500"
+              >
+                Open Otaku Culinary Guild
+              </a>
+            </div>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              {features.map((feature) => (
+                <div
+                  key={feature}
+                  className="rounded-2xl border border-zinc-800 bg-zinc-900/50 px-4 py-3 text-sm text-zinc-300"
+                >
+                  {feature}
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature) => (
+          <div className="grid gap-4">
+            <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6">
+              <div className="text-sm font-medium text-zinc-400">
+                North Star
+              </div>
+              <div className="mt-3 text-2xl font-semibold">
+                James Beard&ndash;caliber culinary experience
+              </div>
+              <p className="mt-3 text-sm leading-6 text-zinc-300">
+                Build for rigor, originality, cultural depth, technical clarity,
+                and strong editorial voice.
+              </p>
+            </div>
+            <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6">
+              <div className="text-sm font-medium text-zinc-400">
+                Challenge Engine
+              </div>
+              <div className="mt-3 text-2xl font-semibold">Kitchen Trials</div>
+              <p className="mt-3 text-sm leading-6 text-zinc-300">
+                Mystery baskets, constraints, AI judging, rankings, and guild
+                progression.
+              </p>
+            </div>
+            <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6">
+              <div className="text-sm font-medium text-zinc-400">
+                Fandom Layer
+              </div>
+              <div className="mt-3 text-2xl font-semibold">
+                Otaku Culinary Guild
+              </div>
+              <p className="mt-3 text-sm leading-6 text-zinc-300">
+                Enter an anime title and infer its food style, likely dishes,
+                and inspired recreations.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="guilds" className="mt-20">
+          <div className="mb-8 flex items-end justify-between gap-4">
+            <div>
+              <div className="text-sm uppercase tracking-[0.25em] text-zinc-500">
+                Guild structure
+              </div>
+              <h2 className="mt-2 text-3xl font-semibold">The Guild Hall</h2>
+            </div>
+            <div className="text-sm text-zinc-400">
+              Skill paths, culture, technique, and creative progression
+            </div>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {guilds.map((guild) => (
               <div
-                key={feature.title}
-                className="group p-8 rounded-2xl border border-gray-100 hover:border-brand-200 bg-white hover:bg-brand-50/30 transition-all hover:shadow-lg"
+                key={guild.name}
+                className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6 shadow-lg"
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-100 to-brand-200 flex items-center justify-center mb-5 group-hover:from-brand-200 group-hover:to-brand-300 transition-all">
-                  <feature.icon className="h-6 w-6 text-brand-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {feature.description}
+                <div className="text-3xl">{guild.icon}</div>
+                <h3 className="mt-4 text-xl font-semibold">{guild.name}</h3>
+                <p className="mt-3 text-sm leading-6 text-zinc-300">
+                  {guild.desc}
                 </p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Sample Recipes Preview */}
-      <section className="py-24 bg-gradient-to-b from-white to-brand-50/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold">
-              Trending <span className="text-gradient">Recipes</span>
-            </h2>
-            <p className="mt-4 text-lg text-gray-600">
-              A taste of what our community is cooking right now.
+        <section
+          id="guild-path"
+          className="mt-20 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]"
+        >
+          <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-7">
+            <div className="text-sm uppercase tracking-[0.25em] text-zinc-500">
+              Living culinary journey
+            </div>
+            <h2 className="mt-2 text-3xl font-semibold">Guild Path</h2>
+            <p className="mt-4 text-sm leading-6 text-zinc-300">
+              Users can scan ingredients in the real world on a hike, at a
+              farmer&apos;s market, in a garden, or at a grocery store. The
+              system identifies the item, explains what it is, warns about
+              possible risks, and suggests recipes, pairings, and cuisine paths.
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {sampleRecipes.map((recipe) => (
-              <Link
-                key={recipe.title}
-                href="/recipes"
-                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-brand-200 transition-all hover:shadow-xl"
-              >
-                <div className="h-48 bg-gradient-to-br from-brand-100 to-forest-100 flex items-center justify-center">
-                  <span className="text-7xl group-hover:scale-110 transition-transform">
-                    {recipe.image}
-                  </span>
+            <div className="mt-6 space-y-3">
+              {[
+                "Scan ingredient from photo",
+                "Identify produce, herbs, mushrooms, flowers, and pantry items",
+                "Flag potentially toxic or poisonous finds",
+                "Suggest recipes and pairings",
+                "Save discoveries to Pantry",
+                "Launch a trial from discovered items",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-zinc-800 bg-zinc-950 px-4 py-3 text-sm text-zinc-200"
+                >
+                  {item}
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="px-3 py-1 text-xs font-medium bg-brand-100 text-brand-700 rounded-full">
-                      {recipe.category}
-                    </span>
-                    <span className="px-3 py-1 text-xs font-medium bg-forest-100 text-forest-700 rounded-full">
-                      {recipe.difficulty}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-semibold group-hover:text-brand-600 transition-colors">
-                    {recipe.title}
-                  </h3>
-                  <div className="flex items-center gap-1 mt-3 text-sm text-gray-500">
-                    <Clock className="h-4 w-4" />
-                    {recipe.time}
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              href="/recipes"
-              className="inline-flex items-center gap-2 px-6 py-3 text-brand-600 font-semibold hover:text-brand-700 transition-colors"
-            >
-              View All Recipes
-              <ArrowRight className="h-5 w-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-brand-500 via-brand-600 to-forest-600 p-12 sm:p-16 text-center text-white">
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djZoLTJ2LTZoMnptMC0zMHY2aC0yVjRoMnptMCAxNXY2aC0ydi02aDJ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-50" />
-            <div className="relative">
-              <Utensils className="h-12 w-12 mx-auto mb-6 opacity-90" />
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                Ready to Transform Your Cooking?
-              </h2>
-              <p className="text-lg text-white/80 mb-8 max-w-xl mx-auto">
-                Start a conversation with our AI assistant and unlock a world of
-                culinary possibilities.
-              </p>
-              <Link
-                href="/assistant"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-brand-600 font-semibold text-lg hover:bg-brand-50 transition-all shadow-lg hover:shadow-xl"
-              >
-                <Sparkles className="h-5 w-5" />
-                Get Started Free
-              </Link>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold">
-              How It <span className="text-gradient">Works</span>
-            </h2>
+          <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-7">
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-5">
+                <div className="text-xs uppercase tracking-[0.2em] text-zinc-500">
+                  Scan flow
+                </div>
+                <ul className="mt-4 space-y-2 text-sm text-zinc-300">
+                  <li>1. Upload or capture photo</li>
+                  <li>2. AI identifies likely ingredient</li>
+                  <li>3. Safety system checks toxicity risk</li>
+                  <li>4. Flavor and cuisine engine suggests uses</li>
+                  <li>5. Save to Pantry or Cook Now</li>
+                </ul>
+              </div>
+              <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-5">
+                <div className="text-xs uppercase tracking-[0.2em] text-zinc-500">
+                  Safety layer
+                </div>
+                <ul className="mt-4 space-y-2 text-sm text-zinc-300">
+                  <li>
+                    High-risk mushrooms flagged for non-consumption
+                  </li>
+                  <li>
+                    Toxic flowers and ornamental plants warned clearly
+                  </li>
+                  <li>Confidence-based identification display</li>
+                  <li>Do not eat guidance when certainty is low</li>
+                  <li>
+                    Escalate to expert verification recommendation
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="mt-4 rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm leading-6 text-amber-100">
+              Safety rule: when an image may depict a poisonous or toxic
+              mushroom, flower, or plant, the system must prioritize a warning
+              over recipe suggestions and instruct the user not to consume it
+              without expert confirmation.
+            </div>
           </div>
+        </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto">
-            {[
-              {
-                step: "01",
-                icon: MessageSquare,
-                title: "Ask Anything",
-                desc: 'Tell the AI what ingredients you have, what cuisine you\'re craving, or ask "How do I make the perfect risotto?"',
-              },
-              {
-                step: "02",
-                icon: Sparkles,
-                title: "Get Guidance",
-                desc: "Receive personalized recipes, step-by-step instructions, tips, and answers to all your culinary questions.",
-              },
-              {
-                step: "03",
-                icon: Leaf,
-                title: "Cook & Enjoy",
-                desc: "Follow along at your own pace. The AI adapts to your skill level and helps you build confidence in the kitchen.",
-              },
-            ].map((item) => (
-              <div key={item.step} className="text-center">
-                <div className="relative w-16 h-16 mx-auto mb-6">
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-100 to-brand-200 rotate-6" />
-                  <div className="relative w-full h-full rounded-2xl bg-white flex items-center justify-center shadow-sm">
-                    <item.icon className="h-7 w-7 text-brand-600" />
-                  </div>
+        <section
+          id="kitchen-trials"
+          className="mt-20 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]"
+        >
+          <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-7">
+            <div className="text-sm uppercase tracking-[0.25em] text-zinc-500">
+              Challenge engine
+            </div>
+            <h2 className="mt-2 text-3xl font-semibold">Kitchen Trials</h2>
+            <p className="mt-4 text-sm leading-6 text-zinc-300">
+              Users receive a mystery basket, time limit, and creative
+              constraint. The system can guide, coach, or judge the dish like a
+              serious but constructive chef.
+            </p>
+            <div className="mt-6 space-y-3">
+              {[
+                "Mystery Basket Trial",
+                "Constraint Trial",
+                "Technique Trial",
+                "Regional Trial",
+                "Pairing Trial",
+                "Anime Guild Trial",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-zinc-800 bg-zinc-950 px-4 py-3 text-sm text-zinc-200"
+                >
+                  {item}
                 </div>
-                <div className="text-xs font-bold text-brand-400 mb-2">
-                  STEP {item.step}
+              ))}
+            </div>
+          </div>
+          <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-7">
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-5">
+                <div className="text-xs uppercase tracking-[0.2em] text-zinc-500">
+                  Example basket
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                <div className="mt-3 text-lg font-semibold">
+                  Sous Chef Trial
+                </div>
+                <ul className="mt-4 space-y-2 text-sm text-zinc-300">
+                  <li>Anchor: chicken thighs</li>
+                  <li>Tension: blueberries</li>
+                  <li>Support: thyme</li>
+                  <li>Wildcard: chickpeas</li>
+                  <li>Constraint: include a pan sauce</li>
+                  <li>Time: 35 minutes</li>
+                </ul>
+              </div>
+              <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-5">
+                <div className="text-xs uppercase tracking-[0.2em] text-zinc-500">
+                  Judge categories
+                </div>
+                <ul className="mt-4 space-y-2 text-sm text-zinc-300">
+                  <li>Flavor balance &mdash; 25</li>
+                  <li>Technique &mdash; 20</li>
+                  <li>Creativity &mdash; 15</li>
+                  <li>Cohesion &mdash; 15</li>
+                  <li>Presentation &mdash; 10</li>
+                  <li>Authenticity &mdash; 10</li>
+                  <li>Constraint success &mdash; 5</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="otaku-culinary-guild"
+          className="mt-20 rounded-3xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950 p-8"
+        >
+          <div className="grid gap-8 lg:grid-cols-[1fr_1fr]">
+            <div>
+              <div className="text-sm uppercase tracking-[0.25em] text-zinc-500">
+                Fandom culinary intelligence
+              </div>
+              <h2 className="mt-2 text-3xl font-semibold">
+                Otaku Culinary Guild
+              </h2>
+              <p className="mt-4 text-sm leading-7 text-zinc-300">
+                Enter an anime by name and the agent infers its culinary style:
+                ramen culture, tavern food, school lunches, bento, festival
+                snacks, sweets, comfort meals, or fantasy analogs. Then it maps
+                those themes to real-world dishes and shows the user how to
+                recreate them.
+              </p>
+              <div className="mt-6 rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5 text-sm text-zinc-300">
+                <div className="font-medium text-white">
+                  Anime title &rarr; culinary reasoning
+                </div>
+                <p className="mt-3 leading-6">
+                  Example: a title with ramen-shop identity triggers noodle
+                  broth profiles, topping logic, shoyu or tonkotsu style
+                  mapping, and weeknight vs elevated recreation paths.
+                </p>
+              </div>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2">
+              {[
+                "Iconic Dishes Archive",
+                "Series Style Detection",
+                "Real-World Cuisine Mapping",
+                "Scene-to-Plate Recipes",
+                "Immersion Mode",
+                "Anime Trials",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5 text-sm text-zinc-200"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="schema" className="mt-20">
+          <div className="mb-8">
+            <div className="text-sm uppercase tracking-[0.25em] text-zinc-500">
+              Build package
+            </div>
+            <h2 className="mt-2 text-3xl font-semibold">Database schema</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {schema.map((item) => (
+              <div
+                key={item.table}
+                className="rounded-3xl border border-zinc-800 bg-zinc-900 p-5"
+              >
+                <div className="text-lg font-semibold">{item.table}</div>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {item.fields.map((field) => (
+                    <span
+                      key={field}
+                      className="rounded-full border border-zinc-700 px-3 py-1 text-xs text-zinc-300"
+                    >
+                      {field}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section id="prompts" className="mt-20">
+          <div className="mb-8">
+            <div className="text-sm uppercase tracking-[0.25em] text-zinc-500">
+              Agent library
+            </div>
+            <h2 className="mt-2 text-3xl font-semibold">Prompt system</h2>
+          </div>
+          <div className="grid gap-4 lg:grid-cols-2">
+            {prompts.map((prompt) => (
+              <div
+                key={prompt.title}
+                className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6"
+              >
+                <div className="text-xl font-semibold">{prompt.title}</div>
+                <div className="mt-2 text-sm font-medium text-zinc-400">
+                  {prompt.goal}
+                </div>
+                <div className="mt-4 rounded-2xl border border-zinc-800 bg-zinc-950 p-4 text-sm leading-6 text-zinc-300">
+                  {prompt.snippet}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="wireframes" className="mt-20 grid gap-4 lg:grid-cols-2">
+          <div>
+            <div className="text-sm uppercase tracking-[0.25em] text-zinc-500">
+              UX architecture
+            </div>
+            <h2 className="mt-2 text-3xl font-semibold">Screen wireframes</h2>
+          </div>
+          <div className="text-sm leading-6 text-zinc-400">
+            These screen groups define the initial MVP information architecture
+            for the web app.
+          </div>
+          {wireframes.map((wf) => (
+            <div
+              key={wf.name}
+              className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6"
+            >
+              <div className="text-xl font-semibold">{wf.name}</div>
+              <ul className="mt-4 space-y-2 text-sm text-zinc-300">
+                {wf.blocks.map((block) => (
+                  <li key={block}>&bull; {block}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </section>
+
+        <section
+          id="repo"
+          className="mt-20 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]"
+        >
+          <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6">
+            <div className="text-sm uppercase tracking-[0.25em] text-zinc-500">
+              Monorepo plan
+            </div>
+            <h2 className="mt-2 text-3xl font-semibold">MVP repo structure</h2>
+            <div className="mt-5 rounded-2xl border border-zinc-800 bg-zinc-950 p-4 font-mono text-sm text-zinc-300">
+              {repo.map((line) => (
+                <div key={line}>{line}</div>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6">
+            <div className="text-sm uppercase tracking-[0.25em] text-zinc-500">
+              API surface
+            </div>
+            <h2 className="mt-2 text-3xl font-semibold">Core endpoints</h2>
+            <div className="mt-5 grid gap-3 md:grid-cols-2">
+              {endpoints.map((endpoint) => (
+                <div
+                  key={endpoint}
+                  className="rounded-2xl border border-zinc-800 bg-zinc-950 px-4 py-3 font-mono text-xs text-zinc-300"
+                >
+                  {endpoint}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
